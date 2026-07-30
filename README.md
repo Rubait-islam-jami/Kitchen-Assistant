@@ -37,6 +37,7 @@ This approach reduces hallucinations and produces more accurate, relevant, and c
 - User Feedback Collection
 - Grafana Monitoring Dashboard
 - Docker & Docker Compose Support
+- Streamlit User Interface
 
 ---
 ## System Architecture
@@ -186,6 +187,11 @@ Kitchen-Assistant/
     └── >>>>
 
 ```
+## User Interface
+
+![UI]<p align="center">
+  <img src="images/example.png" width="1000">
+</p>
 
 ## Installation & Usage
 
