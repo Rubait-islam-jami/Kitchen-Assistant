@@ -7,6 +7,9 @@ st.set_page_config(
     layout="wide"
 )
 
+if "recent_questions" not in st.session_state:
+    st.session_state.recent_questions = []
+
 st.markdown("""
 <style>
 
@@ -70,6 +73,11 @@ question = st.text_input(
     placeholder="Example: I have tomatoes and eggs. What can I cook?"
 )
 
+if st.session_state.recent_questions:
+    with st.expander("Recent questions", expanded=False):
+        for previous_question in st.session_state.recent_questions:
+            st.write(f"- {previous_question}")
+
 if st.button("🔍 Get Recipe", use_container_width=True):
 
     if not question.strip():
@@ -93,6 +101,15 @@ if st.button("🔍 Get Recipe", use_container_width=True):
                 if response.status_code == 200:
 
                     result = response.json()
+
+                    st.session_state.recent_questions = [
+                        question,
+                        *[
+                            previous_question
+                            for previous_question in st.session_state.recent_questions
+                            if previous_question != question
+                        ]
+                    ][:5]
 
                     st.subheader("🍽️ Recipe Recommendation")
 
@@ -143,6 +160,10 @@ if st.button("🔍 Get Recipe", use_container_width=True):
                 st.error(
                     "Cannot connect to the Flask API.\n\nRun:\n\npython app.py"
                 )
+
+            except requests.exceptions.Timeout:
+
+                st.error("The recipe service took too long to respond. Please try again.")
 
             except Exception as e:
 
