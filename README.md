@@ -250,7 +250,7 @@ The current system can be extended with several additional features:
 - Deploy the application on a cloud platform for public access.
 ## Acknowledgements
 ```
-This project was developed as the final project for the **LLM Zoomcamp** organized by **DataTalks.Club**.
+This project was developed as the final project.
 
 The application uses:
 
