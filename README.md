@@ -8,7 +8,7 @@
 <h1 align="center">🍳 Kitchen Assistant RAG System</h1>
 
 <p align="center">
-Kitchen Assistant is an end-to-end Retrieval-Augmented Generation (RAG) application developed as the final project for the DataTalks.Club LLM Zoomcamp.
+Kitchen Assistant is an end-to-end Retrieval-Augmented Generation (RAG) application developed as the final project.
 
 </p>
 
